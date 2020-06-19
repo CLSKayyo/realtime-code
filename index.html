@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealTime Code Editor</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        .realTimeTextEditor{
+            background-color: #b3b3b3;;
+            width: 50%;
+            height: 100%;
+            position: absolute;
+        }
+
+        #editor{
+            width: 93%;
+            height: 93%;
+            display: table;
+            margin: 2%;
+            border: none;
+            border-radius: 10px;
+            resize: none;
+            padding: 1%;
+            font-size: 14px;
+        }
+
+        #content{
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <section class="realTimeTextEditor">
+        <textarea id="editor" onkeyup="changeHTML()" placeholder="Your code here..."></textarea>
+    </section>
+    <section id="content"></section>
+    
+    <script>
+
+        window.onload = ()=>{
+            document.getElementById("editor").innerHTML = '<style>\n'+
+                '   .bodyContent{\n'+
+                    '   padding: 15px;\n'+
+                '   }\n'+
+                '</style>\n'+
+                '<div class="bodyContent">\n'+
+                '   <h1>Hello World!!</h1>\n'+
+                '   <a href="https://github.com/CLSKayyo/realtime-code">Created by Caio Lucas</a>\n'+
+                '</div>';
+
+            document.getElementById("content").innerHTML = `<style>
+                .bodyContent{
+                    padding: 15px;
+                }
+                </style>
+                <div class="bodyContent">
+                    <h1>Hello World!!</h1>
+                    <a href="https://github.com/CLSKayyo/realtime-code">Created by Caio Lucas</a>
+                </div>`;
+        }
+        
+        function changeHTML(){
+            document.getElementById("content").innerHTML = document.getElementById("editor").value;
+        }
+    </script>
+</body>
+</html>
